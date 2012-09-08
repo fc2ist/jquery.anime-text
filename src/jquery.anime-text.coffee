@@ -3,19 +3,19 @@ $.fn.animeText = (opt)->
     'speed': '1s',
     'vital': 1
   if opt == 'destroy'
-    this.trigger('destroy.anime-font')
+    this.trigger('destroy.anime-text')
     return this
   opt = $.extend(def, opt)
   return this.each(->
     elem = $(this)
-    if elem.data('anime-font') then return
-    elem.data( 'anime-font', (data = new AnimationText(elem, opt)) )
+    if elem.data('anime-text') then return
+    elem.data( 'anime-text', (data = new AnimationText(elem, opt)) )
   )
   
 class AnimationText
   constructor:(@target, @opt)->
     self = @
-    @target.on('destroy.anime-font', ->
+    @target.on('destroy.anime-text', ->
       destroy.apply(self, [$(this)])
     )
     @text = wrapping(@target, @target.text())
@@ -26,10 +26,10 @@ class AnimationText
   ]
   
   destroy = (elem)->
-    elem.data('anime-font', false)
+    elem.data('anime-text', false)
     elem.html( elem.text() )
     @style.remove()
-    elem.off('destroy.anime-font')
+    elem.off('destroy.anime-text')
   
   wrapping = (target, text)->
     target.empty()

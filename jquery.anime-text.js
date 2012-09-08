@@ -2,38 +2,38 @@
 * Copyright (c) 2012 moi; Licensed MIT, GPL */
 
 (function() {
-  var AnimationFont;
+  var AnimationText;
 
-  $.fn.animeFont = function(opt) {
+  $.fn.animeText = function(opt) {
     var def;
     def = {
       'speed': '1s',
       'vital': 1
     };
     if (opt === 'destroy') {
-      this.trigger('destroy.anime-font');
+      this.trigger('destroy.anime-text');
       return this;
     }
     opt = $.extend(def, opt);
     return this.each(function() {
       var data, elem;
       elem = $(this);
-      if (elem.data('anime-font')) {
+      if (elem.data('anime-text')) {
         return;
       }
-      return elem.data('anime-font', (data = new AnimationFont(elem, opt)));
+      return elem.data('anime-text', (data = new AnimationText(elem, opt)));
     });
   };
 
-  AnimationFont = (function() {
+  AnimationText = (function() {
     var animation, cssParse, destroy, getFrameProp, getTransform, randomString, s1, setAnimationName, vender, wrapping;
 
-    function AnimationFont(target, opt) {
+    function AnimationText(target, opt) {
       var self;
       this.target = target;
       this.opt = opt;
       self = this;
-      this.target.on('destroy.anime-font', function() {
+      this.target.on('destroy.anime-text', function() {
         return destroy.apply(self, [$(this)]);
       });
       this.text = wrapping(this.target, this.target.text());
@@ -43,10 +43,10 @@
     vender = ['-webkit-', '-moz-', '-o-', '-ms-', '-khtml-', ''];
 
     destroy = function(elem) {
-      elem.data('anime-font', false);
+      elem.data('anime-text', false);
       elem.html(elem.text());
       this.style.remove();
-      return elem.off('destroy.anime-font');
+      return elem.off('destroy.anime-text');
     };
 
     wrapping = function(target, text) {
@@ -74,7 +74,7 @@
       keyframes = '';
       for (_i = 0, _len = ary.length; _i < _len; _i++) {
         item = ary[_i];
-        frameName = 'animefont' + randomString(16);
+        frameName = 'animeText-' + randomString(32);
         style = {};
         for (_j = 0, _len1 = vender.length; _j < _len1; _j++) {
           v = vender[_j];
@@ -147,7 +147,7 @@
       return s;
     };
 
-    return AnimationFont;
+    return AnimationText;
 
   })();
 
