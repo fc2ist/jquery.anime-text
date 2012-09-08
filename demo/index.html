@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Demo - jQuery Animation Text</title>
+  <script type="text/javascript" src="../libs/jquery-1.8.1.min.js"></script>
+  <script type="text/javascript" src="../jquery.anime-text.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Schoolbell' rel='stylesheet' type='text/css'>
+  <style type="text/css">
+  .anime-text {
+    font-family: 'Schoolbell', cursive;
+  }
+  </style>
+</head>
+<body>
+	
+	<h1 class="anime-text">jQuery Animation Font</h1>
+	<h2 class="anime-text">ヽ(=´▽`=)ﾉ</h2>
+	
+	<script type="text/javascript">
+  $(function() {
+    $('.anime-text').animeFont({
+      'vital': 3
+    });
+  });
+	</script>
+
+</body>
+</html>
