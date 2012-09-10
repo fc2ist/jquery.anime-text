@@ -2,33 +2,14 @@
   "name": "jquery.anime-text",
   "title": "jQuery Animation Text",
   "description": "文字を揺らす効果",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": {
     "name": "moi",
     "twitter": "@moi_fc2"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jquery/jquery.git"
-  },
-  "bugs": {
-    "url": "http://bugs.jquery.com"
-  },
   "licenses": [
     {
-      "type": "MIT",
-      "url": "http://jquery.com/blob/master/MIT-LICENSE.txt"
-    },
-    {
-      "type": "GPL",
-      "url": "http://jquery.com/blob/master/GPL-LICENSE.txt"
+      "type": "MIT"
     }
-  ],
-  "dependencies": {},
-  "devDependencies": {
-    "grunt-compare-size": ">=0.1.0",
-    "grunt": ">=0.3.9",
-    "testswarm": "0.2.2"
-  },
-  "keywords": []
+  ]
 }

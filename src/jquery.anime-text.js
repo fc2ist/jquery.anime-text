@@ -1,6 +1,6 @@
-(function() {
-  var AnimationText;
 
+(function($) {
+  var AnimationText;
   $.fn.animeText = function(opt) {
     var def;
     def = {
@@ -21,8 +21,7 @@
       return elem.data('anime-text', (data = new AnimationText(elem, opt)));
     });
   };
-
-  AnimationText = (function() {
+  return AnimationText = (function() {
     var animation, cssParse, destroy, getFrameProp, getTransform, randomString, s1, setAnimationName, vender, wrapping;
 
     function AnimationText(target, opt) {
@@ -147,5 +146,4 @@
     return AnimationText;
 
   })();
-
-}).call(this);
+})(jQuery);

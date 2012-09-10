@@ -32,7 +32,7 @@ module.exports = function(grunt) {
         src: ['src/*.coffee'],
         dest: 'src/',
         options: {
-          bare: false
+          bare: true
         }
       }
     }

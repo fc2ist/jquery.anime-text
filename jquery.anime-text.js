@@ -1,9 +1,9 @@
-/*! jQuery Animation Text - v0.1.0 - 2012-09-09
-* Copyright (c) 2012 moi; Licensed MIT, GPL */
+/*! jQuery Animation Text - v0.2.0 - 2012-09-10
+* Copyright (c) 2012 moi; Licensed MIT */
 
-(function() {
+
+(function($) {
   var AnimationText;
-
   $.fn.animeText = function(opt) {
     var def;
     def = {
@@ -24,8 +24,7 @@
       return elem.data('anime-text', (data = new AnimationText(elem, opt)));
     });
   };
-
-  AnimationText = (function() {
+  return AnimationText = (function() {
     var animation, cssParse, destroy, getFrameProp, getTransform, randomString, s1, setAnimationName, vender, wrapping;
 
     function AnimationText(target, opt) {
@@ -150,5 +149,4 @@
     return AnimationText;
 
   })();
-
-}).call(this);
+})(jQuery);
