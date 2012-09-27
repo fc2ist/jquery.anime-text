@@ -1,4 +1,4 @@
-/*! jQuery Animation Text - v0.2.0 - 2012-09-10
+/*! jQuery Animation Text - v0.2.1 - 2012-09-28
 * Copyright (c) 2012 moi; Licensed MIT */
 
 
@@ -14,7 +14,7 @@
       this.trigger('destroy.anime-text');
       return this;
     }
-    opt = $.extend(def, opt);
+    opt = $.extend(opt, def);
     return this.each(function() {
       var data, elem;
       elem = $(this);

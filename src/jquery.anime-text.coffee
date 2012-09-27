@@ -6,13 +6,13 @@
     if opt == 'destroy'
       this.trigger('destroy.anime-text')
       return this
-    opt = $.extend(def, opt)
+    opt = $.extend(opt, def)
     return this.each(->
       elem = $(this)
       if elem.data('anime-text') then return
       elem.data( 'anime-text', (data = new AnimationText(elem, opt)) )
     )
-    
+
   class AnimationText
     constructor:(@target, @opt)->
       self = @
@@ -21,17 +21,17 @@
       )
       @text = wrapping(@target, @target.text())
       animation.apply(@, [@text])
-    
+
     vender = [
       '-webkit-', '-moz-', '-o-', '-ms-',  '-khtml-', ''
     ]
-    
+
     destroy = (elem)->
       elem.data('anime-text', false)
       elem.html( elem.text() )
       @style.remove()
       elem.off('destroy.anime-text')
-    
+
     wrapping = (target, text)->
       target.empty()
       ary = []
@@ -41,10 +41,10 @@
         ary.push( a )
         target.append( a )
       return ary
-    
+
     animation = (ary)->
       setAnimationName.apply(@, [ary])
-  
+
     setAnimationName = (ary)->
       keyframes = ''
       for item in ary
@@ -62,8 +62,8 @@
         style['display'] = 'inline-block'
         item.css(style)
       @style = $('<style/>').html(keyframes).appendTo('head')
-    
-    
+
+
     getFrameProp = ->
       from = {}
       to = {}
@@ -76,7 +76,7 @@
           vcss[key] = transform
         css += cssParse(i*10+'%', vcss)
       return css
-    
+
     getTransform = ->
       vital = @opt.vital
       rotate = s1(2*vital - Math.random() * 4*vital)
@@ -85,16 +85,16 @@
           'y': s1( 0.975 + Math.random() * 0.05 )
       skew = s1(2*vital - Math.random() * 4*vital )
       return 'rotate(' + rotate + 'deg) scale(' + scale.x + ',' + scale.y + ') skew(' + skew + 'deg)'
-    
+
     s1 = (num)->
       return Math.floor(num * 100) / 100
-    
+
     cssParse = (name, obj)->
       ary = []
       for k, v of obj
         ary.push( k + ':' + v )
       return name + '{' + ary.join(';') + '}'
-  
+
     randomString = (n)->
     	a = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
     	s = '';
