@@ -6,7 +6,7 @@
     if opt == 'destroy'
       this.trigger('destroy.anime-text')
       return this
-    opt = $.extend(opt, def)
+    opt = $.extend(true, {}, def, opt)
     return this.each(->
       elem = $(this)
       if elem.data('anime-text') then return

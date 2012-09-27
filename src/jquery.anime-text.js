@@ -11,7 +11,7 @@
       this.trigger('destroy.anime-text');
       return this;
     }
-    opt = $.extend(opt, def);
+    opt = $.extend(true, {}, def, opt);
     return this.each(function() {
       var data, elem;
       elem = $(this);
